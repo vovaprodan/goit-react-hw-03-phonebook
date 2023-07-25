@@ -46,11 +46,11 @@ this.setState({filter: e.currentTarget.value})
     
       <div className={css.div}>
         <h1>Phonebook</h1>
-      <ContactForm onSubmit= {this.handleSubmit} />
+        <ContactForm onSubmit= {this.handleSubmit} />
         <h2>Contacts</h2>
         <Filter value={filter} onChange={this.changeFilter}/>
         <ContactList data={filterContacts} onDeleteConcat={this.onClickButton} />
-        </div>
+      </div>
     );
   }
 }
