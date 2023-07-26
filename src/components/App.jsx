@@ -36,6 +36,24 @@ this.setState({filter: e.currentTarget.value})
       contacts: prevState.contacts.filter(contact => contact.id !== id)
     }))
   }
+
+  componentDidMount() {
+    const contacts = localStorage.getItem('contacts');
+    const parsedContacts = JSON.parse(contacts);
+
+    if (parsedContacts) {
+        this.setState({contacts: parsedContacts })
+    }
+  
+}
+
+  componentDidUpdate(prevProps, prevState,) {
+  
+    if (this.state.contacts !== prevState.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts))
+    }
+}
+
    render() {
     const { filter} = this.state;
     const normalisFilter = this.state.filter.toLowerCase();
